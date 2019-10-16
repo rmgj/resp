@@ -1,0 +1,33 @@
+server:
+  port: 8081  #项目的访问端口
+  servlet:
+    context-path: /
+spring:
+  application:  #当前发布的服务的名字
+    name: users
+ 
+  datasource: #配置数据源信息
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.25.10:3306/orders
+    username: root
+    password: root
+
+  jpa:
+    show-sql: true #控制台是否打印sql
+    generate-ddl: true #配置正向工程(通过实体类产生数据库表)
+    hibernate: #在启动项目的时候根据实体类生成数据库表,如果不一致更新表
+      ddl-auto: update  
+    #配置数据库方言，jpa开发的java程序可以实现跨数据库平台
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+                       #org.hibernate.dialect.MySQL5Dialect
+                       #org.hibernate.dialect.MySQL5InnoDBDialect 
+  rabbitmq:
+    host: 192.168.25.90
+    port: 5672
+    username: laifu
+    password: 123456
+    virtual-host: /
+                      
+ 
+
+
